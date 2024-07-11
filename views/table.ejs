@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            width: 100px; /* Ширина изображения */
+            height: auto; /* Высота изображения */
+        }
+    </style>
+</head>
+<body>
+    <h1>Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Дата рождения</th>
+                <th>Номер паспорта</th>
+                <th>Сертификат</th>
+                <th>Фотография</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.fullName %></td>
+                    <td><%= user.birthDate %></td>
+                    <td><%= user.passportNumber %></td>
+                    <td><%= user.certificate === 'cert_B' ? 'B' : 'BC' %></td>
+                    <td><img src="/photos/<%= user.photo %>" alt="User Photo"></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
